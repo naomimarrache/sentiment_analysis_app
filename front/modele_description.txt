@@ -1,0 +1,1 @@
+"Tfidf/Lem/Log Meilleur ensemble de paramètres: {'vectorizer__ngram_range': (1, 3), 'vectorizer__max_features': 6000, 'vectorizer__max_df': 0.75, 'classifier__penalty': 'l2', 'classifier__C': 1}"

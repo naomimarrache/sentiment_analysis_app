@@ -1,0 +1,1 @@
+Tfidf/Stem/Log {'classifier__C': 1, 'classifier__penalty': 'l2', 'vectorizer__max_df': 0.75, 'vectorizer__max_features': 2000, 'vectorizer__ngram_range': (1, 3)}

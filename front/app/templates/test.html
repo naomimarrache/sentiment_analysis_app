@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SentimentAnalysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="titre" style="background-color:lightgray">
+    <h2 class="display-2 text-center titreh2"> Sentiment Analysis </h2>
+    <h5 class="display-5 text-center"> For your reviews </h5><img src="/static/tripadvisor.png"  height="60" style="border-radius:100%;margin-left: 48%;">
+</div>
+<a href="/"  class="btn btn-primary" style="margin-left:46%;margin-top:3%;" value="Analyse again"> Analyze again</a>
+{% if langue!='en' and langue!="fr"  %}
+<div style="border-color: blue;border-style: ridge;margin-left: 25%;margin-right: 25%;margin-top:5%;padding: 20px;">
+  <h3>Language not detected, please specify it</h3>
+  <form action="http://localhost:5000/analyse_2" method="post">
+      <input name="language" type="hidden" value="English">
+      <input name="review" type="hidden" value="{{review}}">
+      <button type="submit"  class="btn btn-warning" style="margin-left:40%;margin-top:3%;" value="Analyse">English</button>
+  </form>
+  <form action="http://localhost:5000/analyse_2" method="post">
+      <input name="language" type="hidden" value="French">
+      <input name="review" type="hidden" value="{{review}}">
+      <button type="submit"  class="btn btn-info" style="margin-left:40%;margin-top:3%;" value="Analyse">French</button>
+  </form>
+<div >
+{% else %}
+<div>
+    <p style="font-style: italic;margin-left: 39%;margin-right: 30%;margin-top: 2%";> " {{review}} " </p>
+    <p style="margin-left: 39%;color:silver">Language: {{ langue }}</p>
+    <h3 style="margin-left: 39%"> {{ prediction }} review </h3>
+    <h5 style="margin-left: 39%"> Proba : {{ proba }}  </h5>
+    <img src="/static/{{prediction}}.png" height="300" style="border-radius:100%;margin-left: 38%"><br>
+    
+</div>
+{% endif %}
+
+
+</body>
+</html>

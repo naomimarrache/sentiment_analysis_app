@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SentimentAnalysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<div class="titre" style="background-color:lightgray">
+    <h2 class="display-2 text-center titreh2"> Sentiment Analysis </h2>
+    <h5 class="display-5 text-center"> For your reviews </h5><img src="/static/tripadvisor.png"  height="60" style="border-radius:100%;margin-left: 48%;">
+</div>
+
+<a href="/"  class="btn btn-primary" style="margin-left:46%;margin-top:3%;" value="Analyse again"> Analyze again</a>
+<div>
+    <p style="font-style: italic;margin-left: 39%;margin-right: 30%;margin-top: 2%"> " {{review}} " </p>
+    <p style="margin-left: 39%;color:silver">Language: {{ langue }}</p>
+    <h2 style="margin-left: 39%"> {{ prediction }} review</h2>
+    <img src="/static/{{prediction}}.png" height="300" style="border-radius:100%;margin-left: 38%">
+</div>
+</body>
+</html>
